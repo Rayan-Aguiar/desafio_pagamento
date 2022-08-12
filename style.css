@@ -86,3 +86,12 @@ input[type="submit"]:hover{
     background-color: #49306B;
     transition: 0.3s;
 }
+
+div.msg-erro{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(212, 37, 17, 0.3);
+    border: 1px solid rgb(160, 10, 10);
+    color: #080708;
+}
