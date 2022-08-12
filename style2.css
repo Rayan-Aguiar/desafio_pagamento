@@ -1,0 +1,19 @@
+/* Estilo geral*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #49306B;   
+    font-family: var(--font-primary); 
+    border: none;
+    
+}
+
+:root{
+    --font-primary: "Open Sans", sans-serif;
+}

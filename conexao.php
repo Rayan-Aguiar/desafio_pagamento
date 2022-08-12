@@ -17,16 +17,19 @@
         public function logar($email, $senha){
             global $pdo;
             //Verifica se o email e senha estão cadastrados.
-            $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e AND senha = :s");
+            $sql = $pdo->prepare("SELECT ID FROM cliente WHERE email = :e AND senha = :s");
             $sql->bindValue(":e", $email);
-            $sql->bindValue(":s", md5($senha));
+            $sql->bindValue(":s", $senha);
             $sql->execute();
+
+            /*echo $email.$senha;
+
+            var_dump($sql->fetch());*/
 
             if($sql->rowCount() > 0){
                 //Entrar no Sistema (sessao)
                 $dado = $sql->fetch(); //Retorna uma unica row da consulta
-                session_start();
-                $_SESSION ['id-cliente'] = $dado['id_usuario'];
+                $_SESSION ['ID'] = $dado['ID'];
                 return true; //Logado com Sucesso
             }
             else{

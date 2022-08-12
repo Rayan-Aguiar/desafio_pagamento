@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <form method="POST" action="entrar.php">
+    <form method="POST" action="index.php">
 
         <div class="main-container">
             <h1>Entre com o seu login</h1>
@@ -25,44 +25,41 @@
                 </div>
         </div>
         <?php
-         if(isset($_POST['email'])){
+        if(isset($_POST['email'])){
             $email = addslashes($_POST['email']);//addlashes - não deixa que passem scripts pelos campos
             $senha = addslashes($_POST['senha']);
-         }
+        }
 
          //Verifica se os campos foram preenchidos
          if(!empty($email) && !empty($senha)){
             $u ->conectar("projeto-pagamento", "localhost", "root", "");
-            if($u->msgErro == ""){//Verifica se não houve nenhum erro na conexão com o BD
-                if($u->logar($email,$senha)){
-                    header(location: areaprivada.php);
-                } else{
+                if($u->msgErro == ""){ //Verifica se não houve nenhum erro na conexão com o BD
+                    $test = $u->logar($email,$senha);
+                    if($u->logar($email,$senha)){
+                        header("location: areaprivada.php");
+                    } else{
+                        ?>
+                        <div class="msg-erro">
+                            Email e/ou senha incorreta!
+                    </div>
+                    <?php
+                    }
+            }
+                else{
                     ?>
                     <div class="msg-erro">
-                        Email e/ou senha incorreta!
-                </div>
-                <?php
+                        <?php  echo 'Erro:'.$u->msgErro; ?>
+                    </div>
+                <?php 
+                 }
+        } 
+                else{
+                    ?>
+                        <div class="msg-erro">
+                            <p> Preencha todos os campos.</p>
+                        </div>
+                    <?php
                 }
-            }
-            else{
-                ?>
-                <div class="msg-erro">
-                    <?php  echo 'Erro:'.$u->msgErro; ?>
-                </div>
-            <?php 
-        }
-    } 
-        else{
-            ?>
-                <div class="msg-erro">
-                    <p> Preencha todos os campos.</p>
-                </div>
-            <?php
-        }
-
-
-
-
             ?>
 
     </form>    
