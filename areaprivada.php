@@ -28,7 +28,7 @@
         $sql = $pdo->prepare("SELECT CPF, nome, email FROM cliente WHERE CPF = :id ");
         $sql -> bindValue(":id", $id);
         $sql->execute();        
-        
+
     ?>
 
     <h2>Seja bem-vindo(a)!</h2>

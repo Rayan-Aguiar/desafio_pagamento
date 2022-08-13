@@ -22,14 +22,12 @@
             $sql->bindValue(":s", $senha);
             $sql->execute();
 
-            /*echo $email.$senha;
-
-            var_dump($sql->fetch());*/
+           
 
             if($sql->rowCount() > 0){
                 //Entrar no Sistema (sessao)
                 $dado = $sql->fetch(); //Retorna uma unica row da consulta
-                $_SESSION ['ID'] = $dado['ID'];
+                $_SESSION['ID'] = $dado['ID'];
                 return true; //Logado com Sucesso
             }
             else{

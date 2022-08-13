@@ -91,7 +91,7 @@ div.msg-erro{
     width: 250px;
     margin: 10px auto;
     padding: 10px;
-    background: rgba(212, 37, 17, 0.3);
+    background-color: rgba(212, 37, 17, 0.3);
     border: 1px solid rgb(160, 10, 10);
     color: #fff;
 }
