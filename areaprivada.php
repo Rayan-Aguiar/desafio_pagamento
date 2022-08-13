@@ -28,8 +28,8 @@ if (!isset($_SESSION['ID'])) {
     <div class="main-container">
         <h2>Seja bem-vindo(a)!</h2>
         <div class="bottons">
-            <a href="#">Adicionar Saldo</a>
-            <a href="#">Transferir Saldo</a>
+            <a href="adicionarsaldo.php">Adicionar Saldo</a>
+            <a href="transferirsaldo.php">Transferir Saldo</a>
             <a href="Sair.php">Sair</a>
         </div>
     </div>

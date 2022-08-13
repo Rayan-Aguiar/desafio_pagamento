@@ -7,11 +7,14 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: #49306B;
+    box-sizing: border-box;    
     font-family: var(--font-primary);
     border: none;
 
+}
+
+body{
+    background-color: #49306B;
 }
 
 :root {

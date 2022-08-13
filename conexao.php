@@ -36,4 +36,45 @@ class usuario
             return false; //Não possivel logar
         }
     }
+
+    public function adicionar($id, $saldo)
+    {
+        echo "$id $saldo";
+
+        global $pdo;
+
+        $AdicionaSaldo = $pdo->prepare("UPDATE cliente SET saldo=saldo+$saldo WHERE ID=$id");
+        $AdicionaSaldo->execute();
+        if ($AdicionaSaldo) {
+            echo "Saldo adicionado";
+        }
+    }
+
+    public function transferir($id, $tranferencia, $id_transferencia)
+    {
+        if($id ==$id_transferencia){
+            echo "não pode transferir para a mesma pessoa";
+            return false;
+        }
+        global $pdo;
+
+        $select = $pdo->prepare("SELECT saldo FROM cliente WHERE ID=$id");
+        $select->execute();
+
+
+        if ($select->rowCount() > 0) {
+            $dado = $select->fetch();
+            if ($dado['saldo'] >= $tranferencia) {
+                $RetirarSaldo = $pdo->prepare("UPDATE cliente SET saldo=saldo-$tranferencia WHERE ID=$id");
+                $RetirarSaldo->execute();
+                if ($RetirarSaldo) {
+                    $AdicionaSaldo = $pdo->prepare("UPDATE cliente SET saldo=saldo+$tranferencia WHERE ID=$id_transferencia");
+                    $AdicionaSaldo->execute();
+                    if ($AdicionaSaldo) {
+                        echo "Saldo Transferido";
+                    }
+                }
+            }
+        }
+    }
 }
