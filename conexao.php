@@ -52,7 +52,7 @@ class usuario
 
     public function transferir($id, $tranferencia, $id_transferencia)
     {
-        if($id ==$id_transferencia){
+        if ($id == $id_transferencia) {
             echo "não pode transferir para a mesma pessoa";
             return false;
         }

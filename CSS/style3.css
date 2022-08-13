@@ -1,0 +1,64 @@
+/* Estilo geral*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    border: none;
+
+}
+
+body {
+    background-color: #49306B;
+}
+
+:root {
+    --font-primary: "Open Sans", sans-serif;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type="number"] {
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    border-radius: 20px;
+    outline: none;
+    height: 30px;
+    padding: 8px;
+    margin-top: 5%;
+
+}
+
+input[type="submit"] {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    background-color: #191919;
+    color: white;
+    border-radius: 20px;
+    height: 30px;
+    cursor: pointer;
+    width: 200px;
+    padding: 8px;
+    margin-top: 5%;
+
+}
+
+div.bottons a {
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #191919;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px;
+
+}

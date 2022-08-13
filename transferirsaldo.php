@@ -18,29 +18,35 @@ if (!isset($_SESSION['ID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style2.css">
+    <link rel="stylesheet" href="CSS/style3.css">
     <title>Transferir Saldo</title>
 </head>
+
 <body>
 
+    <div class="bottons">
+        <a href="areaprivada.php">Inicio</a>
+    </div>
 
-    <form style="background-color: #fff" action="transferirsaldo.php" method="POST">
+    <form class="formulario" action="transferirsaldo.php" method="POST">
         <input type="number" placeholder="Insira o valor" name="valor">
         <input type="number" placeholder="Insira o ID" name="id_usuario">
         <input type="submit" value="Transferir">
     </form>
-    <?php 
-    if (isset($_POST['valor'])){
+
+    <?php
+    if (isset($_POST['valor'])) {
         $valor = $_POST['valor'];
         $id = $_SESSION['ID'];
         $tranferencia = $_POST['id_usuario'];
 
         $u->conectar("projeto-pagamento", "localhost", "root", "");
-        $u->transferir($id, $valor,$tranferencia);
+        $u->transferir($id, $valor, $tranferencia);
     }
 
 
     ?>
 
 </body>
+
 </html>
