@@ -55,3 +55,18 @@ div.bottons a{
     padding: 10px;
    
 }
+
+div.dados-user{
+    margin-left: 15px;
+    color: #49306B;
+    font-weight: bold;
+    
+}
+
+div.container-user{
+    width: 350px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color:white;
+}
