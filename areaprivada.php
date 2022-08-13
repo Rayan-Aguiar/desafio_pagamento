@@ -1,18 +1,19 @@
 <?php
-   require_once 'conexao.php';
-   $u = new Usuario; 
-    
-    //Inicio uma sessão e verifico se quem está logado realmente tem essa permissão, caso não, redireciona para o inicio da pagina.
-    session_start();
-    if(!isset($_SESSION['ID'])){
-        header("location: index.php");
-        exit;
-    }
-       
+require_once 'conexao.php';
+$u = new Usuario;
+
+//Inicio uma sessão e verifico se quem está logado realmente tem essa permissão, caso não, redireciona para o inicio da pagina.
+session_start();
+if (!isset($_SESSION['ID'])) {
+    header("location: index.php");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,14 +21,15 @@
     <link rel="stylesheet" href="style2.css">
     <title>Area do cliente</title>
 </head>
+
 <body>
 
     <?php
-        $u ->conectar("projeto-pagamento","localhost", "root", "");
-        $id = $_SESSION ['ID'];
-        $sql = $pdo->prepare("SELECT CPF, nome, email FROM cliente WHERE CPF = :id ");
-        $sql -> bindValue(":id", $id);
-        $sql->execute();        
+    $u->conectar("projeto-pagamento", "localhost", "root", "");
+    $id = $_SESSION['ID'];
+    $sql = $pdo->prepare("SELECT CPF, nome, email FROM cliente WHERE CPF = :id ");
+    $sql->bindValue(":id", $id);
+    $sql->execute();
 
     ?>
 
@@ -39,4 +41,5 @@
     </div>
 
 </body>
+
 </html>

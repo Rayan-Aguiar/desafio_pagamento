@@ -4,16 +4,16 @@
 
 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #49306B;   
-    font-family: var(--font-primary); 
+    background-color: #49306B;
+    font-family: var(--font-primary);
     border: none;
-    
+
 }
 
-:root{
+:root {
     --font-primary: "Open Sans", sans-serif;
 }
